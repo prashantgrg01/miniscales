@@ -9,14 +9,17 @@
     <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet">
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    <!-- Page Background Image -->
+    <img class="bg" src="{% static 'img/bg.jpg' %}">
     <div class="container">
         <!-- Header Section -->
         <header class="text-center">        
-            <h1 class="text-info">Minimal Music Scales</h1>
+            <h1>Minimal Music Scales</h1>
             <h5>by <a href="https://github.com/prashantgrg01">@prashantgrg01</a></h5>
         </header>
 
@@ -37,10 +40,10 @@
 
         <!-- Result Display Section -->
         {% if note_name %}
-        <section class="res-section">
+        <section class="res-section animated zoomIn">
             <!-- Display current selected note title and scale pattern -->
-            <h2 class="res-title">{{ note_name }} {{ scale_name }} Scale</h2>
-            <h5 class="res-subtitle text-success text-center">{{ scale_name }} Scale Pattern :- <span class="notes-pattern">{{ scale_pattern }}</span></h5>
+            <h2 class="res-title shadow">{{ note_name }} {{ scale_name }} Scale</h2>
+            <h5 class="res-subtitle text-info text-center shadow">{{ scale_name }} Scale Pattern :- <span class="notes-pattern">{{ scale_pattern }}</span></h5>
             
             <!-- Display all the notes in the scale -->
             <h4 class="res-subtitle">Notes :- </h4>
@@ -75,6 +78,11 @@
                     {% endif %}
                 {% endfor %}
             </section>
+        </section>
+        {% else %}
+        <section class="res-section animated tada">
+            <!-- Display initial message -->
+            <h5 class="res-title text-info shadow">Select the <strong>Key</strong> and <strong>Scale</strong> you want to learn!</h5>
         </section>
         {% endif %}
     </div>

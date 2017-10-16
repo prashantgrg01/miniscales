@@ -1,28 +1,52 @@
 /* Style for the interface */
 body {
     font-family: 'Architects Daughter', cursive;
-    background-color: #ffa;
-    color: #555;
+    background-color: #fcc950;
+    color: #444;
+}
+.bg {
+    display: none;
+}
+@media (min-width: 576px) {
+    .bg {
+        display: block;
+        position: fixed;
+        width: 100%;
+        height: 132%;
+        z-index: -9999;
+    }
+}
+.shadow {
+    -webkit-text-shadow: 1px 1px 2px #ffb; 
+    -moz-text-shadow: 1px 1px 2px #ffb; 
+    -ms-text-shadow: 1px 1px 2px #ffb; 
+    -o-text-shadow: 1px 1px 2px #ffb; 
+    text-shadow: 1px 1px 2px #ffb; 
 }
 header {
     padding: 1.5rem 0 0.5rem 0;
 }
+header h1 {
+    color: #ffb;
+}
 header a {
     color: inherit;
+    -webkit-transition: all 250ms ease-out;
+    -moz-transition: all 250ms ease-out;
+    -ms-transition: all 250ms ease-out;
+    -o-transition: all 250ms ease-out;
     transition: all 250ms ease-out;
 }
 header a:hover, header a:active {
     text-decoration: none;
-    color: #ffc107;
+    color: #ffb;
+    border-bottom: 1px dotted #ffb;
 }
 .form-section {
     padding: 0.5rem 0;
 }
 #key-form .form-row {
     justify-content: center;
-}
-#key-form .form-control {
-    color: #444;
 }
 @media (max-width: 576px) {
     #key-form #scale {
@@ -44,15 +68,16 @@ header a:hover, header a:active {
 }
 .notes-table {
     font-size: 1.15rem;
+    border-radius: 0.2rem;
 }
 .notes-table th, .notes-table td {
     text-align: center;
 }
 .notes-table tbody > tr:nth-child(odd) {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.95);
 }
 .notes-table tbody > tr.notes-row {
-    background-color: #868e96;
+    background-color: rgba(134, 142, 150, 0.95);
     color: #fff;
 }
 .chord-box {
@@ -61,11 +86,9 @@ header a:hover, header a:active {
 .chord-box > li {
     font-size: 1.15rem;
     text-align: center;
-}
-.chord-box > li:nth-child(odd) {
-    background-color: #f8f8f8;    
+    background-color: rgba(255, 255, 255, 0.95);   
 }
 .chord-box > li:first-child {
-    background-color: #868e96;
+    background-color: rgba(134, 142, 150, 0.95);
     color: #fff; 
 }
