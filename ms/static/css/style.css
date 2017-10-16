@@ -1,0 +1,71 @@
+/* Style for the interface */
+body {
+    font-family: 'Architects Daughter', cursive;
+    background-color: #ffa;
+    color: #555;
+}
+header {
+    padding: 1.5rem 0 0.5rem 0;
+}
+header a {
+    color: inherit;
+    transition: all 250ms ease-out;
+}
+header a:hover, header a:active {
+    text-decoration: none;
+    color: #ffc107;
+}
+.form-section {
+    padding: 0.5rem 0;
+}
+#key-form .form-row {
+    justify-content: center;
+}
+#key-form .form-control {
+    color: #444;
+}
+@media (max-width: 576px) {
+    #key-form #scale {
+        margin-top: 0.5rem;
+    }
+}
+.res-section {
+    padding: 1rem 0;
+}
+.res-section .res-title {
+    padding: 0.5rem 0;
+    text-align: center;
+}
+.res-section .res-subtitle {
+    padding: 0.25rem 0;
+}
+.notes-pattern {
+    text-transform: uppercase;
+}
+.notes-table {
+    font-size: 1.15rem;
+}
+.notes-table th, .notes-table td {
+    text-align: center;
+}
+.notes-table tbody > tr:nth-child(odd) {
+    background-color: #fff;
+}
+.notes-table tbody > tr.notes-row {
+    background-color: #868e96;
+    color: #fff;
+}
+.chord-box {
+    padding-bottom: 1rem;
+}
+.chord-box > li {
+    font-size: 1.15rem;
+    text-align: center;
+}
+.chord-box > li:nth-child(odd) {
+    background-color: #f8f8f8;    
+}
+.chord-box > li:first-child {
+    background-color: #868e96;
+    color: #fff; 
+}
