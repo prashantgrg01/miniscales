@@ -43,7 +43,7 @@
 
         <!-- Result Display Section -->
         {% if note_name %}
-        <section class="res-section animated zoomIn">
+        <section class="res-section animated zoomIn" id="res-section">
             <!-- Display current selected note title and scale pattern -->
             <h2 class="res-title shadow">{{ note_name }} {{ scale_name }} Scale</h2>
             <h5 class="res-subtitle text-info text-center shadow">{{ scale_name }} Scale Pattern :- <span class="notes-pattern">{{ scale_pattern }}</span></h5>
@@ -64,6 +64,14 @@
                     </tr>
                 </tbody>
             </table>
+
+            <!-- Piano Section -->
+            <section class="piano-section text-center">
+                <a href="#res-section" role="button" class="btn btn-info" id="btn-piano"><span class="fa fa-music"></span> Keyboard <span class="fa fa-music"></span></a>
+                <section class="piano" id="piano">
+                    <!-- Piano keys to be generated dynamically -->
+                </section>
+            </section>
 
             <!-- Display all the chords that fit into the scale -->
             <h4 class="res-subtitle">Chords That Fit :- </h4>
@@ -92,9 +100,11 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script src="{% static 'js/howler.min.js' %}"></script>
+    <script src="{% static 'js/piano.js' %}"></script>
     <script>
         // when the dom is loaded
         $(document).ready(function() {
@@ -110,6 +120,50 @@
                     $("#key-form").submit();
                 }
             });
+
+            // get the piano section in the dom
+            var piano = document.getElementById("piano");
+            // store all the notes in the array
+            var notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+            // define the 2 octaves in the array
+            var octaves = ["s", "o"];
+            // dynamically create and add key for each note in the piano for the two octaves
+            for (var j=0; j <=1; j++) {
+                for (var i=1; i<=12; i++) {
+                    // create a new element for the key
+                    var key = document.createElement("div");
+                    // adjust the class name for each key
+                    if (i == 2 || i == 4 || i == 7 || i == 9 || i == 11) {
+                        key.className = "sharp-key";
+                    } else {
+                        key.className = "major-key";
+                    }
+                    // add id equivalent to the note sound file
+                    key.id = "note" + i + octaves[j];
+                    // create a new element to display the note on top of each key
+                    var note = document.createElement("span");
+                    // adjust the class name for the element based on the octave
+                    if (j % 2 == 0) {
+                        note.className = "note-display";
+                    } else {
+                        note.className = "note-display octave";
+                    }
+                    // append the note name to it
+                    note.innerText = notes[i-1];
+                    // append the element to the key
+                    key.appendChild(note);
+                    // append the key to the piano
+                    piano.appendChild(key);
+                }
+            }
+
+            // initially hide the piano
+            $("#piano").hide();
+            // hide and show piano based on the button click
+            $("a#btn-piano").click(function() {
+                $("#piano").fadeToggle(350);
+            });
+
         });
     </script>
 </body>

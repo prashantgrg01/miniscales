@@ -30,7 +30,7 @@ header h1 {
     color: #ffb;
 }
 header a {
-    color: inherit;
+    color: #444;
     -webkit-transition: all 250ms ease-out;
     -moz-transition: all 250ms ease-out;
     -ms-transition: all 250ms ease-out;
@@ -92,3 +92,94 @@ header a:hover, header a:active {
     background-color: rgba(134, 142, 150, 0.95);
     color: #fff; 
 }
+
+/* Piano Style */
+.piano {
+    position: relative;
+    width: 100%;
+    height: 18rem;
+    margin: 1rem 0 2rem 0;
+    cursor: pointer;
+}
+.major-key {
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 7.142857%;
+    height: 100%;
+    float: left;
+    border: 1px solid #000;
+    -webkit-box-shadow: 0px 0px 8px #000 inset;
+    -moz-box-shadow: 0px 0px 8px #000 inset;
+    -ms-box-shadow: 0px 0px 8px #000 inset;
+    box-shadow: 0px 0px 8px #000 inset;
+}
+.sharp-key {
+    background-color: #222;
+    width: 5%;
+    height: 70%;
+    z-index: 99999;
+    position: absolute;
+    border: 1px solid #000;
+    -webkit-box-shadow: 0px 0px 25px #000 inset;
+    -moz-box-shadow: 0px 0px 25px #000 inset;
+    -ms-box-shadow: 0px 0px 25px #000 inset;
+    box-shadow: 0px 0px 25px #000 inset;
+}
+.major-key, .sharp-key {
+    -webkit-border-bottom-left-radius: 6px;
+    -moz-border-bottom-left-radius: 6px;
+    -ms-border-bottom-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    -webkit-border-bottom-right-radius: 6px;
+    -moz-border-bottom-right-radius: 6px;
+    -ms-border-bottom-right-radius: 6px;
+    border-bottom-right-radius: 6px;   
+}
+#note2s {
+    margin-left: 4.6%;  
+}
+#note4s {
+    margin-left: 11.8%;  
+}
+#note7s {
+    margin-left: 26.1%; 
+}
+#note9s {
+    margin-left: 33.25%;  
+}
+#note11s {
+    margin-left: 40.4%;  
+}
+#note2o {
+    margin-left: 54.6%;  
+}
+#note4o {
+    margin-left: 61.8%;  
+}
+#note7o {
+    margin-left: 76.1%;  
+}
+#note9o {
+    margin-left: 83.25%;  
+}
+#note11o {
+    margin-left: 90.3%;  
+}
+.note-display {
+    background-color: #28a745;
+    color: #fff;
+    padding: 0.1rem 0.25rem;
+    border-radius: 40%;
+    position: relative;
+}
+.sharp-key > .note-display {
+    top: 10rem;
+}
+.major-key > .note-display {
+    top: 15rem;
+    padding: 0.2rem 0.65rem;
+}
+/*
+.note-display.octave {
+    background-color: #17a2b8;
+}
+*/
